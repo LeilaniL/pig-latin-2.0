@@ -12,7 +12,7 @@ $(document).ready(function() {
 
 // logic
 // Vowel: add "way" to the end.
-// TODO: Consonant: move all consonants to end and add "ay".
+// Consonant: move all consonants to end and add "ay".
 // TODO: If the first consonants include "qu", move the "u" along with the "q". Don't forget about words like "squeal" where "qu" doesn't come first!
 // TODO: For words beginning with "y", treat "y" as a consonant.
 // TODO: Handle multi-word input
@@ -24,17 +24,13 @@ function translateWord(word) {
   } else if (characterArr[0] == 'q' && characterArr[1] == 'u') {
     console.log('I have a Q and a U!');
   } else {
-    console.log('I started with a consonant!');
     var consonants = [];
     for (var i = 0; i < characterArr.length; i++) {
       if (!vowels.includes(characterArr[i])) {
-        console.log('Consonant! ', characterArr[i]);
         consonants.push(characterArr[i]);
-        console.log('Consonants: ', consonants);
       } else {
         characterArr = characterArr.splice(i);
-        console.log(characterArr);
-        return consonants;
+        return characterArr.join('') + consonants.join('') + 'ay';
       }
     }
   }
