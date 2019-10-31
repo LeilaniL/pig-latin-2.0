@@ -4,7 +4,6 @@ $(document).ready(function() {
     event.preventDefault();
     $('#results').hide();
     var inputSentence = $('#userInput').val();
-    console.log('input: ', inputSentence);
     var translation = getTranslation(inputSentence);
     $('h3').text(translation);
     $('#results').fadeIn(2000);
@@ -27,7 +26,6 @@ function getTranslation(sentence) {
   var wordArray = sentence.split(' ');
   wordArray.forEach(function(input) {
     result.push(translateWord(input));
-    console.log('result: ', result);
   });
   if (!result.join('')) {
     return 'Nope! Try again Grant!';
@@ -42,7 +40,6 @@ function translateWord(word) {
   } else {
     var consonants = [];
     for (var i = 0; i < characterArr.length; i++) {
-      console.log('I am Loop: ', i);
       if (characterArr[i] === 'q' && characterArr[i + 1] === 'u') {
         consonants.push(characterArr[i] + characterArr[i + 1]);
         //remove 'qu' from array to avoid checking it again in next loop
@@ -50,7 +47,6 @@ function translateWord(word) {
         characterArr[i + 1] = null;
       }
       if (!vowels.includes(characterArr[i])) {
-        console.log('Consonant! ', characterArr[i]);
         consonants.push(characterArr[i]);
       } else {
         characterArr = characterArr.splice(i);
