@@ -2,10 +2,12 @@
 $(document).ready(function() {
   $('form#latin').submit(function() {
     event.preventDefault();
+    $('#results').hide();
     var inputSentence = $('#userInput').val();
     console.log('input: ', inputSentence);
     var translation = getTranslation(inputSentence);
-    $('p').text(translation);
+    $('h3').text(translation);
+    $('#results').fadeIn(2000);
     $('form#latin')[0].reset();
   });
 });
@@ -17,6 +19,7 @@ $(document).ready(function() {
 // For words beginning with "y", treat "y" as a consonant.
 // TODO: deal with special characters, numbers
 // TODO: maintain capitalization
+// TODO: handle "y" as vowel if not first letter??
 var vowels = ['a', 'i', 'e', 'o', 'u'];
 
 function getTranslation(sentence) {

@@ -16,15 +16,20 @@
     ></script>
     <script src="scripts.js"></script>
   </head>
-  <body>
-    <div class="container">
-      <h1 class="d-flex justify-content-center">Pig Latin</h1>
-      <form id="latin" action="submit" class="d-flex justify-content-center">
-        <label for="userInput">Enter your sentence here:</label>
-        <input id="userInput" type="text" />
-        <button type="submit">Translate!</button>
+  <body class="bg-info">
+    <div class="container p-5">
+      <h1 class="d-flex justify-content-center text-light">Pig Latin</h1>
+      <form
+        id="latin"
+        action="submit"
+        class="d-flex justify-content-center p-5"
+      >
+        <input id="userInput" type="text" placeholder="Enter a sentence" />
+        <button type="submit" class="btn btn-warning">Translate!</button>
       </form>
-      <strong><p class="d-flex justify-content-center"></p></strong>
+      <div id="results" style="display: none;">
+        <h3 class="d-flex justify-content-center text-light"></h3>
+      </div>
     </div>
   </body>
 </html>
