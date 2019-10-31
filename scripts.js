@@ -6,6 +6,7 @@ $(document).ready(function() {
     console.log('input: ', inputSentence);
     var translation = translateWord(inputSentence);
     $('p').text(translation);
+    $('form#latin')[0].reset();
   });
 });
 
@@ -20,9 +21,9 @@ function translateWord(word) {
   var characterArr = word.toLowerCase().split('');
   if (vowels.includes(characterArr[0])) {
     return characterArr.join('') + 'way';
+  } else if (characterArr[0] == 'q' && characterArr[1] == 'u') {
+    return 'I have a Q and a U!';
+  } else {
+    return 'I started with a consonant!';
   }
-
-  //for(var i = 0; i < arr.length; i++) {
-
-  //}
 }
