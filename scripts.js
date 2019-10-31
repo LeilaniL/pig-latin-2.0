@@ -27,7 +27,11 @@ function getTranslation(sentence) {
   var wordArray = sentence.split(' ');
   wordArray.forEach(function(input) {
     result.push(translateWord(input));
+    console.log('result: ', result);
   });
+  if (!result.join('')) {
+    return 'Nope! Try again Grant!';
+  }
   return result.join(' ');
 }
 
