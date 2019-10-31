@@ -22,8 +22,20 @@ function translateWord(word) {
   if (vowels.includes(characterArr[0])) {
     return characterArr.join('') + 'way';
   } else if (characterArr[0] == 'q' && characterArr[1] == 'u') {
-    return 'I have a Q and a U!';
+    console.log('I have a Q and a U!');
   } else {
-    return 'I started with a consonant!';
+    console.log('I started with a consonant!');
+    var consonants = [];
+    for (var i = 0; i < characterArr.length; i++) {
+      if (!vowels.includes(characterArr[i])) {
+        console.log('Consonant! ', characterArr[i]);
+        consonants.push(characterArr[i]);
+        console.log('Consonants: ', consonants);
+      } else {
+        characterArr = characterArr.splice(i);
+        console.log(characterArr);
+        return consonants;
+      }
+    }
   }
 }
